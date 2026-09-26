@@ -151,6 +151,16 @@ p{margin-bottom:1rem;max-width:65ch}
 .photo-scatter.tilt-right{float:right;margin-left:1.5rem;transform:rotate(2.5deg)}
 .photo-scatter.tilt-right:hover{transform:rotate(7deg)}
 
+/* smaller variant for resume-style pages where text should stay dominant */
+.photo-mini{
+  width:120px;
+  aspect-ratio:4/5;
+  float:right;
+  margin:.2rem 0 1rem 1.2rem;
+  transform:rotate(2deg);
+}
+.photo-mini:hover{transform:rotate(6deg)}
+
 h1,h2,h3{clear:both}
 
 p{margin-bottom:1.3rem}
