@@ -230,6 +230,86 @@ p{margin-bottom:1.3rem}
 .status.progress{border:1px solid var(--rust);color:var(--rust)}
 .status.parked{border:1px solid var(--parked);color:var(--parked)}
 
+/* ---------- WIP hero: flex layout so photo doesn't create dead whitespace ---------- */
+.wip-hero{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+.wip-hero-text{flex:1 1 260px}
+
+.photo-hero-large{
+  width:260px;
+  aspect-ratio:1/1.05;
+  flex-shrink:0;
+}
+
+@media (max-width:640px){
+  .wip-hero{flex-wrap:wrap-reverse}
+  .photo-hero-large{width:200px;margin:0 auto}
+}
+
+/* ---------- Cert clusters: expandable cards, grouped by cert not by status ---------- */
+.cert-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+@media (max-width:640px){ .cert-grid{grid-template-columns:1fr} }
+
+.cert-cluster{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:22px 8px 22px 8px;
+  padding:1rem 1.2rem;
+  transition:box-shadow .25s ease;
+}
+.cert-cluster:hover{ box-shadow:0 8px 20px rgba(28,24,20,.1) }
+
+.cert-cluster summary{
+  cursor:pointer;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:.5rem;
+}
+.cert-cluster summary::-webkit-details-marker{display:none}
+.cert-cluster summary .toggle{ color:var(--rust); font-family:'Inter',sans-serif; font-size:1.1rem }
+.cert-cluster[open] summary .toggle::before{content:'\2013'}
+.cert-cluster summary .toggle::before{content:'+'}
+
+.cluster-body{
+  margin-top:1rem;
+  padding:1rem;
+  background:rgba(255,253,250,.7);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  border-radius:16px 6px 16px 6px;
+  border:1px solid var(--line);
+  animation:clusterFade .3s ease;
+}
+
+@keyframes clusterFade{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.cluster-item{margin-bottom:1rem}
+.cluster-item:last-child{margin-bottom:0}
+.cluster-item h4{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:.15rem}
+.cluster-item .meta{margin-bottom:.3rem;font-size:.85rem}
+.cluster-item p{font-size:.9rem;margin-bottom:.3rem}
+
+@media (prefers-reduced-motion:reduce){
+  .cluster-body{animation:none}
+}
+
 /* ---------- Receipts placeholder links ---------- */
 .placeholder-link{
   color:var(--muted);
