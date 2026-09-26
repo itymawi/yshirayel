@@ -136,16 +136,24 @@ p{margin-bottom:1rem;max-width:65ch}
 .blob-b{ border-radius:45% 55% 62% 38% / 55% 48% 52% 45%; }
 .blob-c{ border-radius:55% 45% 38% 62% / 42% 58% 45% 55%; }
 
-.photo-accent{width:96px;height:96px;float:right;margin:.2rem 0 1rem 1.2rem;transform:rotate(-3deg)}
+.photo-accent{
+  width:200px;
+  aspect-ratio:4/5;
+  float:right;
+  margin:.3rem 0 1.5rem 1.5rem;
+  transform:rotate(-3deg);
+}
 .photo-accent:hover{transform:rotate(-8deg)}
 
-.photo-scatter{width:200px;aspect-ratio:4/5;margin:.3rem 0 1rem}
+.photo-scatter{width:200px;aspect-ratio:4/5;margin:.3rem 0 1.5rem}
 .photo-scatter.tilt-left{float:left;margin-right:1.5rem;transform:rotate(-2.5deg)}
 .photo-scatter.tilt-left:hover{transform:rotate(-7deg)}
 .photo-scatter.tilt-right{float:right;margin-left:1.5rem;transform:rotate(2.5deg)}
 .photo-scatter.tilt-right:hover{transform:rotate(7deg)}
 
 h1,h2,h3{clear:both}
+
+p{margin-bottom:1.3rem}
 
 @media (prefers-reduced-motion:reduce){
   .photo-blob,.photo-accent,.photo-scatter{transition:none}
